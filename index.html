@@ -12,12 +12,13 @@
 :root{
 --green:#08783b;
 --dark:#064b29;
+--deep:#053b21;
 --light:#f4f9f1;
 --cream:#fbfcf6;
 --gold:#c99832;
 --text:#173b2a;
 --muted:#60766a;
---white:#ffffff;
+--white:#fff;
 --border:#dce8dc;
 --shadow:0 12px 35px rgba(5,72,38,.10);
 }
@@ -47,16 +48,19 @@ img{
 max-width:100%;
 }
 
+/* CONTAINER */
+
 .container{
 width:min(1180px,calc(100% - 32px));
 margin:auto;
 }
 
 /* NAVIGATION */
+
 .nav{
 position:sticky;
 top:0;
-z-index:100;
+z-index:1000;
 background:rgba(255,255,255,.97);
 backdrop-filter:blur(10px);
 border-bottom:1px solid var(--border);
@@ -72,11 +76,6 @@ justify-content:space-between;
 gap:20px;
 }
 
-.logo{
-display:flex;
-align-items:center;
-}
-
 .logo img{
 width:190px;
 height:auto;
@@ -86,7 +85,7 @@ display:block;
 .nav-links{
 display:flex;
 align-items:center;
-gap:20px;
+gap:19px;
 font-size:14px;
 font-weight:700;
 }
@@ -117,6 +116,7 @@ cursor:pointer;
 }
 
 /* HERO */
+
 .hero{
 background:linear-gradient(100deg,#fbfcf6,#edf6e7);
 }
@@ -129,10 +129,11 @@ align-items:center;
 }
 
 .hero-content{
-padding:65px 20px 65px 0;
+padding:65px 25px 65px 0;
 }
 
-.kicker{
+.kicker,
+.section-kicker{
 font-size:12px;
 font-weight:800;
 letter-spacing:.14em;
@@ -180,6 +181,12 @@ font-size:14px;
 border:2px solid var(--green);
 background:var(--green);
 color:#fff;
+transition:.2s ease;
+}
+
+.btn:hover{
+transform:translateY(-2px);
+box-shadow:0 8px 18px rgba(8,120,59,.18);
 }
 
 .btn-outline{
@@ -198,6 +205,7 @@ height:540px;
 overflow:hidden;
 border-radius:80px 0 0 80px;
 border-left:7px solid #48a53e;
+background:#edf5e8;
 }
 
 .hero-image img{
@@ -208,6 +216,7 @@ display:block;
 }
 
 /* CONTACT BAR */
+
 .contact-bar{
 margin-top:-1px;
 position:relative;
@@ -266,6 +275,7 @@ padding:6px 9px;
 border-radius:6px;
 background:#eef7ed;
 color:var(--green);
+transition:.2s ease;
 }
 
 .contact-actions a:hover{
@@ -274,6 +284,7 @@ color:#fff;
 }
 
 /* GENERAL SECTIONS */
+
 section{
 padding:75px 0;
 }
@@ -282,14 +293,6 @@ padding:75px 0;
 text-align:center;
 max-width:760px;
 margin:0 auto 38px;
-}
-
-.section-kicker{
-font-size:12px;
-font-weight:800;
-letter-spacing:.14em;
-text-transform:uppercase;
-color:var(--green);
 }
 
 .section-title{
@@ -306,6 +309,7 @@ margin:0;
 }
 
 /* PRODUCTS */
+
 .products-section{
 background:#fff;
 }
@@ -361,6 +365,7 @@ margin:0;
 
 .featured{
 border:2px solid #278039;
+position:relative;
 }
 
 .featured .product-image{
@@ -402,6 +407,7 @@ margin-top:11px;
 }
 
 /* QUALITY */
+
 .quality{
 background:var(--dark);
 color:#fff;
@@ -439,6 +445,7 @@ line-height:1.55;
 }
 
 /* ABOUT */
+
 .about{
 background:#fff;
 }
@@ -455,6 +462,7 @@ line-height:1.8;
 }
 
 /* TRADE */
+
 .trade{
 background:var(--light);
 }
@@ -497,7 +505,8 @@ font-size:14px;
 margin:5px 0;
 }
 
-/* CONTACT */
+/* CONTACT SECTION */
+
 .contact-section{
 background:#fff;
 }
@@ -506,7 +515,7 @@ background:#fff;
 background:var(--light);
 border:1px solid var(--border);
 border-radius:18px;
-padding:40px 25px;
+padding:45px 25px;
 text-align:center;
 }
 
@@ -522,6 +531,7 @@ text-decoration:underline;
 }
 
 /* FOOTER */
+
 footer{
 background:#063d22;
 color:#cfe5d7;
@@ -567,6 +577,7 @@ margin:8px 0 15px;
 .footer-role{
 font-weight:800;
 color:#fff;
+margin-bottom:2px;
 }
 
 .copyright{
@@ -580,10 +591,11 @@ font-size:12px;
 }
 
 /* TABLET */
+
 @media(max-width:1100px){
 
 .nav-links{
-gap:12px;
+gap:11px;
 font-size:13px;
 }
 
@@ -603,10 +615,6 @@ height:300px;
 margin:0 16px;
 }
 
-.hero-grid{
-grid-template-columns:1fr 1fr;
-}
-
 .footer-grid{
 grid-template-columns:repeat(2,1fr);
 }
@@ -614,6 +622,7 @@ grid-template-columns:repeat(2,1fr);
 }
 
 /* MOBILE */
+
 @media(max-width:760px){
 
 .container{
@@ -765,6 +774,7 @@ gap:28px;
 }
 
 /* SMALL PHONES */
+
 @media(max-width:480px){
 
 .logo img{
@@ -846,6 +856,7 @@ flex-direction:column;
 </a>
 
 <div class="nav-links" id="navLinks">
+
 <a href="#home">Home</a>
 <a href="#about">About Us</a>
 <a href="#products">Products</a>
@@ -853,6 +864,7 @@ flex-direction:column;
 <a href="#trade">Trade Specs</a>
 <a href="#contact">Contact</a>
 <a href="#contact" class="quote-btn">Request Quote</a>
+
 </div>
 
 <button class="menu-btn" id="menuBtn" aria-label="Open navigation menu" aria-expanded="false">☰</button>
@@ -864,13 +876,18 @@ flex-direction:column;
 
 <!-- HERO -->
 <section class="hero">
+
 <div class="container hero-grid">
 
 <div class="hero-content">
 
-<div class="kicker">Premium Nigerian Agricultural Exporter</div>
+<div class="kicker">
+Premium Nigerian Agricultural Exporter
+</div>
 
-<h1>Premium Agricultural Products from Nigeria to the World</h1>
+<h1>
+Premium Agricultural Products from Nigeria to the World
+</h1>
 
 <div class="hero-line"></div>
 
@@ -879,8 +896,15 @@ NAFNAQ Agricultural supplies carefully selected Nigerian agricultural commoditie
 </p>
 
 <div class="hero-buttons">
-<a class="btn" href="#products">🌿 Our Products</a>
-<a class="btn btn-outline" href="#contact">📞 Contact Us</a>
+
+<a class="btn" href="#products">
+🌿 Our Products
+</a>
+
+<a class="btn btn-outline" href="#contact">
+📞 Contact Us
+</a>
+
 </div>
 
 <div class="special">
@@ -890,175 +914,435 @@ NAFNAQ Agricultural supplies carefully selected Nigerian agricultural commoditie
 </div>
 
 <div class="hero-image">
-<img src="bitter-kola.jpg" alt="Premium dry long Bitter Kola Garcinia kola">
+
+<img
+src="bitter-kola.jpg"
+alt="Premium dry long Bitter Kola Garcinia kola"
+>
+
 </div>
 
 </div>
 </section>
 
 <!-- CONTACTS -->
+
 <div class="container contact-bar">
 
 <div class="contact-grid">
 
 <div class="contact-card">
-<div class="contact-role">CEO</div>
-<div class="contact-number">+234 803 645 5640</div>
+
+<div class="contact-role">
+CEO
+</div>
+
+<div class="contact-number">
++234 803 645 5640
+</div>
+
 <div class="contact-actions">
-<a href="tel:+2348036455640">📞 Call</a>
-<a href="https://wa.me/2348036455640" target="_blank" rel="noopener">💬 WhatsApp</a>
+
+<a href="tel:+2348036455640">
+📞 Call
+</a>
+
+<a href="https://wa.me/2348036455640" target="_blank" rel="noopener">
+💬 WhatsApp
+</a>
+
 </div>
+
 </div>
+
 
 <div class="contact-card">
-<div class="contact-role">Account Officer</div>
-<div class="contact-number">+234 817 696 3655</div>
+
+<div class="contact-role">
+Account Officer
+</div>
+
+<div class="contact-number">
++234 817 696 3655
+</div>
+
 <div class="contact-actions">
-<a href="tel:+2348176963655">📞 Call</a>
-<a href="https://wa.me/2348176963655" target="_blank" rel="noopener">💬 WhatsApp</a>
+
+<a href="tel:+2348176963655">
+📞 Call
+</a>
+
+<a href="https://wa.me/2348176963655" target="_blank" rel="noopener">
+💬 WhatsApp
+</a>
+
 </div>
+
 </div>
+
 
 <div class="contact-card">
-<div class="contact-role">Sales Representative</div>
-<div class="contact-number">+234 803 305 2243</div>
+
+<div class="contact-role">
+Sales Representative
+</div>
+
+<div class="contact-number">
++234 803 305 2243
+</div>
+
 <div class="contact-actions">
-<a href="tel:+2348033052243">📞 Call</a>
-<a href="https://wa.me/2348033052243" target="_blank" rel="noopener">💬 WhatsApp</a>
+
+<a href="tel:+2348033052243">
+📞 Call
+</a>
+
+<a href="https://wa.me/2348033052243" target="_blank" rel="noopener">
+💬 WhatsApp
+</a>
+
 </div>
+
 </div>
+
 
 <div class="contact-card">
-<div class="contact-role">Chinese Representative</div>
-<div class="contact-number">+86 199 4092 7656</div>
-<div class="contact-actions">
-<a href="tel:+8619940927656">📞 Call</a>
-<a href="https://wa.me/8619940927656" target="_blank" rel="noopener">💬 WhatsApp</a>
+
+<div class="contact-role">
+Chinese Representative
 </div>
+
+<div class="contact-number">
++86 199 4092 7656
+</div>
+
+<div class="contact-actions">
+
+<a href="tel:+8619940927656">
+📞 Call
+</a>
+
+<a href="https://wa.me/8619940927656" target="_blank" rel="noopener">
+💬 WhatsApp
+</a>
+
+</div>
+
 </div>
 
 </div>
 </div>
+
 
 <!-- PRODUCTS -->
+
 <section class="products-section" id="products">
+
 <div class="container">
 
 <div class="section-head">
-<div class="section-kicker">Our Products</div>
-<h2 class="section-title">Premium Nigerian Agricultural Products</h2>
+
+<div class="section-kicker">
+Our Products
+</div>
+
+<h2 class="section-title">
+Premium Nigerian Agricultural Products
+</h2>
+
 <p class="section-subtitle">
 Carefully selected agricultural products supplied to local and international buyers.
 </p>
+
 </div>
+
 
 <div class="products">
 
+
+<!-- BITTER KOLA -->
+
 <article class="product featured">
-<img class="product-image" src="bitter-kola.jpg" alt="Premium dry long Bitter Kola Garcinia kola">
+
+<img
+class="product-image"
+src="bitter-kola.jpg"
+alt="Premium dry long Bitter Kola Garcinia kola"
+>
+
 <div class="product-body">
-<span class="badge">Our Specialty</span>
-<h3>Bitter Kola</h3>
-<div class="botanical">Garcinia kola</div>
+
+<span class="badge">
+Our Specialty
+</span>
+
+<h3>
+Bitter Kola
+</h3>
+
+<div class="botanical">
+Garcinia kola
+</div>
+
 <p>
 Premium dry Bitter Kola sourced from Nigeria and prepared for international trade.
 </p>
-<div class="product-mark">🌿</div>
+
+<div class="product-mark">
+🌿
 </div>
+
+</div>
+
 </article>
 
-<article class="product">
-<img class="product-image" src="sesame-seeds.jpg" alt="Nigerian Sesame Seeds">
-<div class="product-body">
-<h3>Sesame Seeds</h3>
-<p>High-quality Nigerian sesame seeds for dependable supply.</p>
-<div class="product-mark">🌿</div>
-</div>
-</article>
+
+<!-- SESAME -->
 
 <article class="product">
-<img class="product-image" src="hibiscus-flower.jpg" alt="Dried Nigerian Hibiscus Flower">
+
+<img
+class="product-image"
+src="sesame-seeds.jpg"
+alt="Nigerian Sesame Seeds"
+>
+
 <div class="product-body">
-<h3>Hibiscus Flower</h3>
-<p>Premium dried hibiscus flowers carefully sourced.</p>
-<div class="product-mark">🌿</div>
+
+<h3>
+Sesame Seeds
+</h3>
+
+<p>
+High-quality Nigerian sesame seeds for dependable supply.
+</p>
+
+<div class="product-mark">
+🌿
 </div>
+
+</div>
+
 </article>
 
-<article class="product">
-<img class="product-image" src="cashew-nuts.jpg" alt="Nigerian Cashew Nuts">
-<div class="product-body">
-<h3>Cashew Nuts</h3>
-<p>Quality Nigerian cashew nuts for reliable supply.</p>
-<div class="product-mark">🌿</div>
-</div>
-</article>
+
+<!-- HIBISCUS -->
 
 <article class="product">
-<img class="product-image" src="shea-nuts.jpg" alt="Nigerian Shea Nuts">
+
+<img
+class="product-image"
+src="hibiscus-flower.jpg"
+alt="Dried Nigerian Hibiscus Flower"
+>
+
 <div class="product-body">
-<h3>Shea Nuts</h3>
-<p>Natural shea nuts carefully sourced from Nigeria.</p>
-<div class="product-mark">🌿</div>
+
+<h3>
+Hibiscus Flower
+</h3>
+
+<p>
+Premium dried hibiscus flowers carefully sourced.
+</p>
+
+<div class="product-mark">
+🌿
 </div>
+
+</div>
+
 </article>
 
+
+<!-- CASHEW -->
+
 <article class="product">
-<img class="product-image" src="ginger.jpg" alt="Nigerian Dried Ginger">
+
+<img
+class="product-image"
+src="cashew-nuts.jpg"
+alt="Nigerian Cashew Nuts"
+>
+
 <div class="product-body">
-<h3>Dried Ginger</h3>
-<p>Premium Nigerian dried ginger for international buyers.</p>
-<div class="product-mark">🌿</div>
+
+<h3>
+Cashew Nuts
+</h3>
+
+<p>
+Quality Nigerian cashew nuts for reliable supply.
+</p>
+
+<div class="product-mark">
+🌿
 </div>
+
+</div>
+
+</article>
+
+
+<!-- SHEA -->
+
+<article class="product">
+
+<img
+class="product-image"
+src="shea-nuts.jpg"
+alt="Nigerian Shea Nuts"
+>
+
+<div class="product-body">
+
+<h3>
+Shea Nuts
+</h3>
+
+<p>
+Natural shea nuts carefully sourced from Nigeria.
+</p>
+
+<div class="product-mark">
+🌿
+</div>
+
+</div>
+
+</article>
+
+
+<!-- GINGER -->
+
+<article class="product">
+
+<img
+class="product-image"
+src="ginger.jpg"
+alt="Nigerian Dried Ginger"
+>
+
+<div class="product-body">
+
+<h3>
+Dried Ginger
+</h3>
+
+<p>
+Premium Nigerian dried ginger for international buyers.
+</p>
+
+<div class="product-mark">
+🌿
+</div>
+
+</div>
+
 </article>
 
 </div>
 </div>
 </section>
 
+
 <!-- QUALITY -->
+
 <section class="quality" id="quality">
+
 <div class="container">
 
 <div class="quality-grid">
 
-<div class="quality-item">
-<div class="quality-icon">🏅</div>
-<h3>Premium Quality</h3>
-<p>We maintain high quality standards across our products.</p>
-</div>
 
 <div class="quality-item">
-<div class="quality-icon">🌿</div>
-<h3>Sustainably Sourced</h3>
-<p>Products are sourced from trusted farmers and communities.</p>
+
+<div class="quality-icon">
+🏅
 </div>
 
-<div class="quality-item">
-<div class="quality-icon">🌐</div>
-<h3>Global Export</h3>
-<p>We serve buyers in China and other international markets.</p>
+<h3>
+Premium Quality
+</h3>
+
+<p>
+We maintain high quality standards across our products.
+</p>
+
 </div>
 
+
 <div class="quality-item">
-<div class="quality-icon">🤝</div>
-<h3>Reliable Partnership</h3>
-<p>We build long-term relationships based on trust and service.</p>
+
+<div class="quality-icon">
+🌿
 </div>
+
+<h3>
+Sustainably Sourced
+</h3>
+
+<p>
+Products are sourced from trusted farmers and communities.
+</p>
+
+</div>
+
+
+<div class="quality-item">
+
+<div class="quality-icon">
+🌐
+</div>
+
+<h3>
+Global Export
+</h3>
+
+<p>
+We serve buyers in China and other international markets.
+</p>
+
+</div>
+
+
+<div class="quality-item">
+
+<div class="quality-icon">
+🤝
+</div>
+
+<h3>
+Reliable Partnership
+</h3>
+
+<p>
+We build long-term relationships based on trust and service.
+</p>
+
+</div>
+
 
 </div>
 </div>
 </section>
 
+
 <!-- ABOUT -->
+
 <section class="about" id="about">
+
 <div class="container">
 
 <div class="about-box">
 
-<div class="section-kicker">About NAFNAQ Agricultural</div>
+<div class="section-kicker">
+About NAFNAQ Agricultural
+</div>
 
-<h2 class="section-title">Quality Produce, Global Reach</h2>
+<h2 class="section-title">
+Quality Produce, Global Reach
+</h2>
 
 <p class="about-text">
 NAFNAQ Agricultural connects international buyers with Nigerian agricultural products, with a strong focus on quality, responsible sourcing, reliable supply and customer satisfaction. We work to build trusted relationships with buyers seeking dependable Nigerian agricultural commodities.
@@ -1068,15 +1352,22 @@ NAFNAQ Agricultural connects international buyers with Nigerian agricultural pro
 </div>
 </section>
 
+
 <!-- TRADE SPECIFICATIONS -->
+
 <section class="trade" id="trade">
+
 <div class="container">
 
 <div class="section-head">
 
-<div class="section-kicker">International Trade</div>
+<div class="section-kicker">
+International Trade
+</div>
 
-<h2 class="section-title">Trade Specifications</h2>
+<h2 class="section-title">
+Trade Specifications
+</h2>
 
 <p class="section-subtitle">
 Our trade specifications provide international buyers with a clear overview of product origin, preparation, packaging, logistics and documentation.
@@ -1084,90 +1375,209 @@ Our trade specifications provide international buyers with a clear overview of p
 
 </div>
 
+
 <div class="trade-grid">
 
-<div class="trade-item">
-<strong>Products</strong>
-<span>Bitter Kola, Sesame Seeds, Hibiscus Flower, Cashew Nuts, Shea Nuts and Dried Ginger.</span>
-</div>
 
 <div class="trade-item">
-<strong>Origin</strong>
-<span>Nigeria</span>
+
+<strong>
+Products
+</strong>
+
+<span>
+Bitter Kola, Sesame Seeds, Hibiscus Flower, Cashew Nuts, Shea Nuts and Dried Ginger.
+</span>
+
 </div>
 
-<div class="trade-item">
-<strong>Product Condition</strong>
-<span>Carefully selected and prepared for export.</span>
-</div>
 
 <div class="trade-item">
-<strong>Foreign Matter</strong>
-<span>Minimal and controlled according to buyer requirements.</span>
+
+<strong>
+Origin
+</strong>
+
+<span>
+Nigeria
+</span>
+
 </div>
 
-<div class="trade-item">
-<strong>Packaging</strong>
-<span>Customized according to buyers' requirements.</span>
-</div>
 
 <div class="trade-item">
-<strong>Minimum Order Quantity</strong>
-<span>Negotiable.</span>
+
+<strong>
+Product Condition
+</strong>
+
+<span>
+Carefully selected and prepared for export.
+</span>
+
 </div>
 
-<div class="trade-item">
-<strong>Supply Capacity</strong>
-<span>Available upon request.</span>
-</div>
 
 <div class="trade-item">
-<strong>Port of Loading</strong>
-<span>Lagos and Abuja, Nigeria.</span>
+
+<strong>
+Foreign Matter
+</strong>
+
+<span>
+Minimal and controlled according to buyer requirements.
+</span>
+
 </div>
 
-<div class="trade-item">
-<strong>Delivery Terms</strong>
-<span>FOB, CFR and CIF.</span>
-</div>
 
 <div class="trade-item">
-<strong>Payment Terms</strong>
-<span>Negotiable.</span>
+
+<strong>
+Packaging
+</strong>
+
+<span>
+Customized according to buyers' requirements.
+</span>
+
 </div>
 
+
 <div class="trade-item">
-<strong>Documents Available</strong>
+
+<strong>
+Minimum Order Quantity
+</strong>
+
+<span>
+Negotiable.
+</span>
+
+</div>
+
+
+<div class="trade-item">
+
+<strong>
+Supply Capacity
+</strong>
+
+<span>
+Available upon request.
+</span>
+
+</div>
+
+
+<div class="trade-item">
+
+<strong>
+Port of Loading
+</strong>
+
+<span>
+Lagos and Abuja, Nigeria.
+</span>
+
+</div>
+
+
+<div class="trade-item">
+
+<strong>
+Delivery Terms
+</strong>
+
+<span>
+FOB, CFR and CIF.
+</span>
+
+</div>
+
+
+<div class="trade-item">
+
+<strong>
+Payment Terms
+</strong>
+
+<span>
+Negotiable.
+</span>
+
+</div>
+
+
+<div class="trade-item">
+
+<strong>
+Documents Available
+</strong>
+
 <ul class="documents">
-<li>Commercial Invoice</li>
-<li>Packing List</li>
-<li>Certificate of Origin</li>
-<li>Phytosanitary Certificate</li>
-<li>Bill of Lading</li>
-<li>Other required export documents</li>
+
+<li>
+Commercial Invoice
+</li>
+
+<li>
+Packing List
+</li>
+
+<li>
+Certificate of Origin
+</li>
+
+<li>
+Phytosanitary Certificate
+</li>
+
+<li>
+Bill of Lading
+</li>
+
+<li>
+Other required export documents
+</li>
+
 </ul>
+
 </div>
 
 </div>
 </div>
 </section>
 
+
 <!-- CONTACT -->
+
 <section class="contact-section" id="contact">
+
 <div class="container">
 
 <div class="contact-panel">
 
-<div class="section-kicker">International Trade & Enquiries</div>
+<div class="section-kicker">
+International Trade & Enquiries
+</div>
 
-<h2 class="section-title">Let's Work Together</h2>
+<h2 class="section-title">
+Let's Work Together
+</h2>
 
 <p class="section-subtitle">
 Tell us the product, quantity and destination and our team will respond with the next steps.
 </p>
 
 <div class="email">
-📧 <a href="mailto:nafnaqexports@gmail.com">nafnaqexports@gmail.com</a>
+
+📧
+
+<a href="mailto:nafnaqexports@gmail.com">
+nafnaqexports@gmail.com
+</a>
+
 </div>
 
 </div>
@@ -1176,13 +1586,19 @@ Tell us the product, quantity and destination and our team will respond with the
 
 </main>
 
+
 <!-- FOOTER -->
+
 <footer>
 
 <div class="container footer-grid">
 
+
 <div class="footer">
-<h3>NAFNAQ AGRICULTURAL</h3>
+
+<h3>
+NAFNAQ AGRICULTURAL
+</h3>
 
 <p>
 Premium Nigerian agricultural products for local and international markets, with a focus on quality, sustainability and dependable service.
@@ -1191,101 +1607,231 @@ Premium Nigerian agricultural products for local and international markets, with
 <p>
 We export to China and other international markets.
 </p>
+
 </div>
+
 
 <div class="footer">
 
-<h3>Quick Links</h3>
+<h3>
+Quick Links
+</h3>
 
 <ul>
-<li><a href="#home">Home</a></li>
-<li><a href="#about">About Us</a></li>
-<li><a href="#products">Our Products</a></li>
-<li><a href="#quality">Quality</a></li>
-<li><a href="#trade">Trade Specifications</a></li>
-<li><a href="#contact">Contact Us</a></li>
+
+<li>
+<a href="#home">Home</a>
+</li>
+
+<li>
+<a href="#about">About Us</a>
+</li>
+
+<li>
+<a href="#products">Our Products</a>
+</li>
+
+<li>
+<a href="#quality">Quality</a>
+</li>
+
+<li>
+<a href="#trade">Trade Specifications</a>
+</li>
+
+<li>
+<a href="#contact">Contact Us</a>
+</li>
+
 </ul>
 
 </div>
 
+
 <div class="footer">
 
-<h3>Our Products</h3>
+<h3>
+Our Products
+</h3>
 
 <ul>
-<li>Bitter Kola (Garcinia kola)</li>
-<li>Sesame Seeds</li>
-<li>Hibiscus Flower</li>
-<li>Cashew Nuts</li>
-<li>Shea Nuts</li>
-<li>Dried Ginger</li>
+
+<li>
+Bitter Kola (Garcinia kola)
+</li>
+
+<li>
+Sesame Seeds
+</li>
+
+<li>
+Hibiscus Flower
+</li>
+
+<li>
+Cashew Nuts
+</li>
+
+<li>
+Shea Nuts
+</li>
+
+<li>
+Dried Ginger
+</li>
+
 </ul>
 
 </div>
 
+
 <div class="footer">
 
-<h3>Contact Us</h3>
+<h3>
+Contact Us
+</h3>
+
 
 <div class="footer-contact">
-<div class="footer-role">CEO</div>
-<a href="tel:+2348036455640">+234 803 645 5640</a><br>
-<a href="https://wa.me/2348036455640" target="_blank" rel="noopener">WhatsApp</a>
+
+<div class="footer-role">
+CEO
 </div>
 
-<div class="footer-contact">
-<div class="footer-role">Account Officer</div>
-<a href="tel:+2348176963655">+234 817 696 3655</a><br>
-<a href="https://wa.me/2348176963655" target="_blank" rel="noopener">WhatsApp</a>
+<a href="tel:+2348036455640">
++234 803 645 5640
+</a>
+
+<br>
+
+<a href="https://wa.me/2348036455640" target="_blank" rel="noopener">
+WhatsApp
+</a>
+
 </div>
 
-<div class="footer-contact">
-<div class="footer-role">Sales Representative</div>
-<a href="tel:+2348033052243">+234 803 305 2243</a><br>
-<a href="https://wa.me/2348033052243" target="_blank" rel="noopener">WhatsApp</a>
-</div>
 
 <div class="footer-contact">
-<div class="footer-role">Chinese Representative</div>
-<a href="tel:+8619940927656">+86 199 4092 7656</a><br>
-<a href="https://wa.me/8619940927656" target="_blank" rel="noopener">WhatsApp</a>
+
+<div class="footer-role">
+Account Officer
 </div>
+
+<a href="tel:+2348176963655">
++234 817 696 3655
+</a>
+
+<br>
+
+<a href="https://wa.me/2348176963655" target="_blank" rel="noopener">
+WhatsApp
+</a>
+
+</div>
+
+
+<div class="footer-contact">
+
+<div class="footer-role">
+Sales Representative
+</div>
+
+<a href="tel:+2348033052243">
++234 803 305 2243
+</a>
+
+<br>
+
+<a href="https://wa.me/2348033052243" target="_blank" rel="noopener">
+WhatsApp
+</a>
+
+</div>
+
+
+<div class="footer-contact">
+
+<div class="footer-role">
+Chinese Representative
+</div>
+
+<a href="tel:+8619940927656">
++86 199 4092 7656
+</a>
+
+<br>
+
+<a href="https://wa.me/8619940927656" target="_blank" rel="noopener">
+WhatsApp
+</a>
+
+</div>
+
 
 <p>
-<a href="mailto:nafnaqexports@gmail.com">nafnaqexports@gmail.com</a>
+
+<a href="mailto:nafnaqexports@gmail.com">
+nafnaqexports@gmail.com
+</a>
+
 </p>
 
 </div>
 
 </div>
 
+
 <div class="container copyright">
 
-<span>© 2026 NAFNAQ Agricultural. All Rights Reserved.</span>
+<span>
+© 2026 NAFNAQ Agricultural. All Rights Reserved.
+</span>
 
-<span>Quality Produce, Global Reach</span>
+<span>
+Quality Produce, Global Reach
+</span>
 
 </div>
 
 </footer>
 
+
 <script>
+
 const menuBtn = document.getElementById("menuBtn");
 const navLinks = document.getElementById("navLinks");
 
 menuBtn.addEventListener("click",function(){
+
 const open = navLinks.classList.toggle("open");
-menuBtn.setAttribute("aria-expanded",open ? "true" : "false");
-menuBtn.textContent = open ? "✕" : "☰";
+
+menuBtn.setAttribute(
+"aria-expanded",
+open ? "true" : "false"
+);
+
+menuBtn.textContent =
+open ? "✕" : "☰";
+
 });
 
 document.querySelectorAll("#navLinks a").forEach(function(link){
+
 link.addEventListener("click",function(){
+
 navLinks.classList.remove("open");
-menuBtn.setAttribute("aria-expanded","false");
+
+menuBtn.setAttribute(
+"aria-expanded",
+"false"
+);
+
 menuBtn.textContent="☰";
+
 });
+
 });
+
 </script>
 
 </body>
